@@ -124,11 +124,11 @@ cat("Loaded dm: ", nrow(dm), " subjects\n")
 # Load controlled terminology (CT) with error handling
 study_ct <- tryCatch(
   {
-    utils::read.csv(
+    read.csv(
       file.path(INPUT_DIR, "sdtm_ct.csv"),
       stringsAsFactors = FALSE
     ) |>
-      dplyr::mutate(across(where(is.character), ~ str_trim(.x)))
+    mutate(across(where(is.character), ~ str_trim(.x)))
   },
   error = function(e) {
     stop(
@@ -141,7 +141,7 @@ cat("Loaded study_ct: ", nrow(study_ct), " terms\n")
 
 # Filter CT for DS domain
 ct_ds <- study_ct |>
-  dplyr::filter(codelist_code == "C66727")
+  filter(codelist_code == "C66727")
 
 cat("DS domain CT terms: ", nrow(ct_ds), "\n")
 
