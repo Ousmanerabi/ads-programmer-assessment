@@ -9,39 +9,40 @@ Question 4 (Python) is not included.
 
 ## Repository Structure
 
-├── question_1_sdtm/
-│ ├── 01_create_ds_domain.R
-│ └── output/
-│ ├── ds.rds
-│ ├── ds.csv
-│ ├── qc_summary.csv
-│ ├── session_info.txt
-│ └── run_log.txt
-│
-├── question_2_adam/
-│ ├── create_adsl.R
-│ └── output/
-│ ├── adsl.rds
-│ ├── adsl.csv
-│ ├── qc_summary.csv
-│ ├── run_log.txt
-│ └── session_info.txt
-│
-├── question_3_tlg/
-│ ├── 01_create_ae_summary_table.R
-│ ├── 02_create_visualizations.R
-│ └── output/
-│ ├── ae_summary_table.html
-│ ├── ae_summary_table.docx
-│ ├── f_ae_severity_by_arm.png
-│ ├── f_top10_ae_with_ci.png
-│ ├── qc_summary.csv
-│ ├── run_log_01_table.txt
-│ ├── run_log_02_plots.txt
-│ └── README.md
-│
-└── README.md
+## Repository Structure
 
+```text
+ads-programmer-assessment/
+├── README.md
+├── question_1_sdtm/
+│   ├── 01_create_ds_domain.R
+│   └── output/
+│       ├── ds.rds
+│       ├── ds.csv
+│       ├── qc_summary.csv
+│       ├── run_log.txt
+│       └── session_info.txt
+├── question_2_adam/
+│   ├── create_adsl.R
+│   └── output/
+│       ├── adsl.rds
+│       ├── adsl.csv
+│       ├── qc_summary.csv
+│       ├── run_log.txt
+│       └── session_info.txt
+└── question_3_tlg/
+    ├── 01_create_ae_summary_table.R
+    ├── 02_create_visualizations.R
+    ├── logs/
+    │   ├── run_log_01_table.txt
+    │   └── run_log_02_plots.txt
+    └── output/
+        ├── ae_summary_table.html
+        ├── ae_summary_table.docx
+        ├── qc_summary.csv
+        ├── f_ae_severity_by_arm.png
+        └── f_top10_ae_with_ci.png
+```
 ## Question 1 — SDTM DS Domain ({sdtm.oak})
 
 **Objective**  
