@@ -110,7 +110,7 @@ Create regulatory-style adverse event outputs using ADAE and ADSL.
 **Outputs**
 - `ae_summary_table.html`
 - `ae_summary_table.docx`
-- `ae_summary_table.pdf`
+
 
 ---
 
