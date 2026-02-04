@@ -1,0 +1,708 @@
+=== Q3 AE Summary Table (TEAE) ===
+Run:  2026-02-04 18:01:17 
+
+Subjects with ACTARM:  306 
+TEAE subject-term rows:  779 
+Saved:  question_3_tlg/output/ae_summary_table.html 
+Saved:  question_3_tlg/output/ae_summary_table.docx 
+  ℹ PDF format: Not generated
+    Reason: pagedown and webshot2 packages unavailable
+    Workaround: HTML/DOCX can be converted to PDF via browser/Word
+
+Loading SDTM datasets...
+  DM:  306  subjects
+  EX:  591  records
+  VS:  29643  records
+  AE:  1191  records
+  DS:  850  records
+
+Initializing ADSL from DM...
+   306  subjects
+
+Deriving age groupings...
+  Age distribution:
+# A tibble: 2 × 3
+  AGEGR9  AGEGR9N     n
+  <chr>     <int> <int>
+1 18 - 50       2     1
+2 >50           3   305
+
+Deriving treatment start datetime...
+  TRTSDTM derived for  254 / 306  subjects
+
+Deriving ITT flag...
+  ITT (Y):  306  subjects
+
+Deriving last known alive date...
+  LSTAVLDT derived for  306  subjects
+
+Running quality control...
+
+QC Summary:
+# A tibble: 1 × 6
+  n_subjects n_unique_usubjid n_na_agegr9 n_na_trtsdtm n_itt n_na_lstavldt
+       <int>            <int>       <int>        <int> <int>         <int>
+1        306              306           0           52   306             0
+
+✓ One record per subject verified
+
+Saving outputs...
+  ✓ adsl.rds
+  ✓ adsl.csv
+  ✓ qc_summary.csv
+  ✓ session_info.txt
+
+================================================================================
+ADSL CREATION COMPLETED
+================================================================================
+
+Subjects:         306 
+ITT population:   306  ( 100 %)
+With TRTSDTM:     254  ( 83 %)
+With LSTAVLDT:    306  ( 100 %)
+
+Output:  question_2_adam/output 
+================================================================================
+Loading SDTM datasets...
+  DM:  306  subjects
+  EX:  591  records
+  VS:  29643  records
+  AE:  1191  records
+  DS:  850  records
+
+Initializing ADSL from DM...
+   306  subjects
+
+Deriving age groupings...
+  Age distribution:
+# A tibble: 2 × 3
+  AGEGR9  AGEGR9N     n
+  <chr>     <int> <int>
+1 18 - 50       2     1
+2 >50           3   305
+
+Deriving treatment start datetime...
+  TRTSDTM derived for  254 / 306  subjects
+
+Deriving ITT flag...
+  ITT (Y):  306  subjects
+
+Deriving last known alive date...
+  LSTAVLDT derived for  306  subjects
+
+Running quality control...
+
+QC Summary:
+# A tibble: 1 × 6
+  n_subjects n_unique_usubjid n_na_agegr9 n_na_trtsdtm n_itt n_na_lstavldt
+       <int>            <int>       <int>        <int> <int>         <int>
+1        306              306           0           52   306             0
+
+✓ One record per subject verified
+
+Saving outputs...
+  ✓ adsl.rds
+  ✓ adsl.csv
+  ✓ qc_summary.csv
+  ✓ session_info.txt
+
+================================================================================
+ADSL CREATION COMPLETED
+================================================================================
+
+Subjects:         306 
+ITT population:   306  ( 100 %)
+With TRTSDTM:     254  ( 83 %)
+With LSTAVLDT:    306  ( 100 %)
+
+Output:  question_2_adam/output 
+================================================================================
+[1] "question_2_adam/output"
+Loading SDTM datasets...
+  DM:  306  subjects
+  EX:  591  records
+  VS:  29643  records
+  AE:  1191  records
+  DS:  850  records
+
+Initializing ADSL from DM...
+   306  subjects
+
+Deriving age groupings...
+  Age distribution:
+# A tibble: 2 × 3
+  AGEGR9  AGEGR9N     n
+  <chr>     <int> <int>
+1 18 - 50       2     1
+2 >50           3   305
+
+Deriving treatment start datetime...
+  TRTSDTM derived for  254 / 306  subjects
+
+Deriving ITT flag...
+  ITT (Y):  306  subjects
+
+Deriving last known alive date...
+  LSTAVLDT derived for  306  subjects
+
+Running quality control...
+
+QC Summary:
+# A tibble: 1 × 6
+  n_subjects n_unique_usubjid n_na_agegr9 n_na_trtsdtm n_itt n_na_lstavldt
+       <int>            <int>       <int>        <int> <int>         <int>
+1        306              306           0           52   306             0
+
+✓ One record per subject verified
+
+Saving outputs...
+  ✓ adsl.rds
+  ✓ adsl.csv
+  ✓ qc_summary.csv
+  ✓ session_info.txt
+
+================================================================================
+ADSL CREATION COMPLETED
+================================================================================
+
+Subjects:         306 
+ITT population:   306  ( 100 %)
+With TRTSDTM:     254  ( 83 %)
+With LSTAVLDT:    306  ( 100 %)
+
+Output:  question_2_adam/output 
+================================================================================
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 18:52:14 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+DSDECOD mapped
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+Datasets merged successfully
+
+=== SECTION 9: Deriving DSSEQ and Study Day ===
+
+DSSEQ and DSSTDY derived
+
+=== SECTION 10: Quality Control ===
+
+QC Summary:
+# A tibble: 1 × 13
+  n_records n_subjects n_na_usubjid n_na_dsterm n_na_dsdecod n_na_dscat n_na_dsdtc n_na_dsstdy
+      <int>      <int>        <int>       <int>        <int>      <int>      <int>       <int>
+1       850        306            0           0            0          0          0          52
+# ℹ 5 more variables: min_dsstdy <int>, max_dsstdy <int>, pct_complete_dsterm <dbl>,
+#   pct_complete_dsdecod <dbl>, pct_complete_dscat <dbl>
+
+✓ No duplicate keys found
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 18:53:58 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+DSDECOD mapped
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+Datasets merged successfully
+
+=== SECTION 9: Deriving DSSEQ and Study Day ===
+
+DSSEQ and DSSTDY derived
+
+=== SECTION 10: Quality Control ===
+
+QC Summary:
+# A tibble: 1 × 13
+  n_records n_subjects n_na_usubjid n_na_dsterm n_na_dsdecod n_na_dscat n_na_dsdtc n_na_dsstdy
+      <int>      <int>        <int>       <int>        <int>      <int>      <int>       <int>
+1       850        306            0           0            0          0          0          52
+# ℹ 5 more variables: min_dsstdy <int>, max_dsstdy <int>, pct_complete_dsterm <dbl>,
+#   pct_complete_dsdecod <dbl>, pct_complete_dscat <dbl>
+
+✓ No duplicate keys found
+
+=== SECTION 11: Saving Outputs ===
+
+✓ Saved:  question_1_sdtm/output/ds.rds 
+✓ Saved:  question_1_sdtm/output/ds.csv 
+✓ Saved:  question_1_sdtm/output/session_info.txt 
+
+================================================================================
+DS DOMAIN CREATION COMPLETED
+================================================================================
+
+Final Statistics:
+  Total records:  850 
+  Unique subjects:  306 
+  DSTERM complete:  100 %
+  DSDECOD complete: 100 %
+  DSCAT complete:  100 %
+
+Output Files:
+   question_1_sdtm/output/ds.rds 
+   question_1_sdtm/output/ds.csv 
+   question_1_sdtm/output/qc_summary.csv 
+   question_1_sdtm/output/ct_mapping_messages.txt 
+   question_1_sdtm/output/session_info.txt 
+
+================================================================================
+Completed at:  2026-02-04 18:53:59 
+================================================================================
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 19:00:25 
+===============================================================================
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+Records after cleaning:  850 
+OAK IDs generated
+DSTERM mapped for  850  records
+# A tibble: 850 × 4
+   oak_id raw_source patient_number DSDECOD              
+    <int> <chr>      <chr>          <chr>                
+ 1      1 ds_raw     701-1015       RANDOMIZED           
+ 2      2 ds_raw     701-1015       COMPLETED            
+ 3      3 ds_raw     701-1015       FINAL LAB VISIT      
+ 4      4 ds_raw     701-1023       RANDOMIZED           
+ 5      5 ds_raw     701-1023       ADVERSE EVENT        
+ 6      6 ds_raw     701-1023       FINAL LAB VISIT      
+ 7      7 ds_raw     701-1023       FINAL RETRIEVAL VISIT
+ 8      8 ds_raw     701-1028       RANDOMIZED           
+ 9      9 ds_raw     701-1028       COMPLETED            
+10     10 ds_raw     701-1028       FINAL LAB VISIT      
+# ℹ 840 more rows
+# ℹ Use `print(n = ...)` to see more rows
+[1] "ℹ These terms could not be mapped per the controlled terminology: \"randomized\", \"final lab visit\", \"final retrieval visit\", \"trial screen failure\", and \"death\".\n"
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+[1] "ℹ These terms could not be mapped per the controlled terminology: \"randomized\", \"final lab visit\", \"final retrieval visit\", \"trial screen failure\", and \"death\".\n"
+[2] "ℹ These terms could not be mapped per the controlled terminology: \"randomized\", \"final lab visit\", \"final retrieval visit\", \"trial screen failure\", and \"death\".\n"
+DSDECOD mapped
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+[1] "\033G3;ℹ These terms could not be mapped per the controlled terminology: \"randomized\" and \"trial screen failure\"."
+[2] "\033g"                                                                                                                
+DSDECOD mapped
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+               collected_value                  term_value
+1                adverse event               ADVERSE EVENT
+2                     complete                   COMPLETED
+3                         dead                       DEATH
+4             lack of efficacy            LACK OF EFFICACY
+5            lost to follow-up           LOST TO FOLLOW-UP
+6           physician decision          PHYSICIAN DECISION
+7           protocol violation          PROTOCOL VIOLATION
+8   trial trial screen failure              SCREEN FAILURE
+9  study terminated by sponsor STUDY TERMINATED BY SPONSOR
+10       withdrawal by subject       WITHDRAWAL BY SUBJECT
+OAK IDs generated
+# A tibble: 13 × 1
+   DSDECOD_SRC                
+   <chr>                      
+ 1 Randomized                 
+ 2 Completed                  
+ 3 Final Lab Visit            
+ 4 Adverse Event              
+ 5 Final Retrieval Visit      
+ 6 Study Terminated by Sponsor
+ 7 Screen Failure             
+ 8 Death                      
+ 9 Withdrawal by Subject      
+10 Physician Decision         
+11 Protocol Violation         
+12 Lost to Follow-Up          
+13 Lack of Efficacy           
+# A tibble: 13 × 2
+   DSDECOD_SRC_NORM                n
+   <chr>                       <int>
+ 1 final lab visit               254
+ 2 randomized                    254
+ 3 complete                      110
+ 4 adverse event                  92
+ 5 trial screen failure           52
+ 6 final retrieval visit          36
+ 7 withdrawal by subject          27
+ 8 study terminated by sponsor     7
+ 9 protocol violation              6
+10 lack of efficacy                4
+11 dead                            3
+12 physician decision              3
+13 lost to follow-up               2
+DSTERM mapped for  850  records
+ [1] "adverse event"               "complete"                    "dead"                       
+ [4] "lack of efficacy"            "lost to follow-up"           "physician decision"         
+ [7] "protocol violation"          "trial screen failure"        "study terminated by sponsor"
+[10] "withdrawal by subject"      
+Unmapped (not in CT) - expected (Option A keeps these as-is):
+# A tibble: 3 × 2
+  DSDECOD_SRC_NORM          n
+  <chr>                 <int>
+1 final lab visit         254
+2 randomized              254
+3 final retrieval visit    36
+
+Excluded (not DS outcomes, visits):
+# A tibble: 2 × 2
+  DSDECOD_SRC_NORM          n
+  <chr>                 <int>
+1 final lab visit         254
+2 final retrieval visit    36
+
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+character(0)
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 20:16:24 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+DSDECOD mapped (CT-driven)
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 20:17:29 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+DSDECOD mapped (CT-driven)
+CT log saved:  question_1_sdtm/output/ct_mapping_messages.txt 
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+Datasets merged successfully
+
+=== SECTION 9: Deriving DSSEQ and Study Day ===
+
+DSSEQ and DSSTDY derived
+
+=== SECTION 10: Quality Control ===
+
+QC Summary:
+# A tibble: 1 × 13
+  n_records n_subjects n_na_usubjid n_na_dsterm n_na_dsdecod n_na_dscat n_na_dsdtc n_na_dsstdy
+      <int>      <int>        <int>       <int>        <int>      <int>      <int>       <int>
+1       850        306            0           0          544          0          0          52
+# ℹ 5 more variables: min_dsstdy <int>, max_dsstdy <int>, pct_complete_dsterm <dbl>,
+#   pct_complete_dsdecod <dbl>, pct_complete_dscat <dbl>
+
+✓ No duplicate keys found
+
+=== SECTION 11: Saving Outputs ===
+
+✓ Saved:  question_1_sdtm/output/ds.rds 
+✓ Saved:  question_1_sdtm/output/ds.csv 
+✓ Saved:  question_1_sdtm/output/session_info.txt 
+
+================================================================================
+DS DOMAIN CREATION COMPLETED
+================================================================================
+
+Final Statistics:
+  Total records:  850 
+  Unique subjects:  306 
+  DSTERM complete:  100 %
+  DSDECOD complete: 36 %
+  DSCAT complete:  100 %
+
+Output Files:
+   question_1_sdtm/output/ds.rds 
+   question_1_sdtm/output/ds.csv 
+   question_1_sdtm/output/qc_summary.csv 
+   question_1_sdtm/output/ct_mapping_messages.txt 
+   question_1_sdtm/output/session_info.txt 
+
+================================================================================
+Completed at:  2026-02-04 20:17:30 
+================================================================================
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 20:24:38 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+Datasets merged successfully
+
+=== SECTION 9: Deriving DSSEQ and Study Day ===
+
+DSSEQ and DSSTDY derived
+
+=== SECTION 10: Quality Control ===
+
+QC Summary:
+# A tibble: 1 × 13
+  n_records n_subjects n_na_usubjid n_na_dsterm n_na_dsdecod n_na_dscat n_na_dsdtc n_na_dsstdy
+      <int>      <int>        <int>       <int>        <int>      <int>      <int>       <int>
+1       850        306            0           0          544          0          0          52
+# ℹ 5 more variables: min_dsstdy <int>, max_dsstdy <int>, pct_complete_dsterm <dbl>,
+#   pct_complete_dsdecod <dbl>, pct_complete_dscat <dbl>
+
+✓ No duplicate keys found
+
+=== SECTION 11: Saving Outputs ===
+
+✓ Saved:  question_1_sdtm/output/ds.rds 
+✓ Saved:  question_1_sdtm/output/ds.csv 
+✓ Saved:  question_1_sdtm/output/session_info.txt 
+
+================================================================================
+DS DOMAIN CREATION COMPLETED
+================================================================================
+
+Final Statistics:
+  Total records:  850 
+  Unique subjects:  306 
+  DSTERM complete:  100 %
+  DSDECOD complete: 36 %
+  DSCAT complete:  100 %
+
+Output Files:
+   question_1_sdtm/output/ds.rds 
+   question_1_sdtm/output/ds.csv 
+   question_1_sdtm/output/qc_summary.csv 
+   question_1_sdtm/output/ct_mapping_messages.txt 
+   question_1_sdtm/output/session_info.txt 
+
+================================================================================
+Completed at:  2026-02-04 20:24:39 
+================================================================================

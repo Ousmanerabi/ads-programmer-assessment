@@ -1,0 +1,93 @@
+===============================================================================
+SDTM DS Domain Creation
+===============================================================================
+Run timestamp:  2026-02-04 20:24:38 
+===============================================================================
+
+
+=== SECTION 1: Loading Data ===
+
+Loaded ds_raw:  850  records
+Loaded dm:  306  subjects
+Loaded study_ct:  164  terms
+DS domain CT terms:  10 
+
+=== SECTION 2: Data Cleaning ===
+
+Records after cleaning:  850 
+
+=== SECTION 3: Generating OAK IDs ===
+
+OAK IDs generated
+
+=== SECTION 4: Mapping DSTERM ===
+
+DSTERM mapped for  850  records
+
+=== SECTION 5: Mapping DSDECOD with CT ===
+
+
+=== SECTION 6: Deriving DSCAT ===
+
+DSCAT distribution:
+# A tibble: 3 × 2
+  DSCAT                  n
+  <chr>              <int>
+1 DISPOSITION EVENT    306
+2 OTHER EVENT          290
+3 PROTOCOL MILESTONE   254
+
+=== SECTION 7: Parsing Date/Time ===
+
+Date/time parsing:
+  Full datetime:  251 
+  Date only:  599 
+  Missing:  0 
+
+=== SECTION 8: Merging Datasets ===
+
+Datasets merged successfully
+
+=== SECTION 9: Deriving DSSEQ and Study Day ===
+
+DSSEQ and DSSTDY derived
+
+=== SECTION 10: Quality Control ===
+
+QC Summary:
+# A tibble: 1 × 13
+  n_records n_subjects n_na_usubjid n_na_dsterm n_na_dsdecod n_na_dscat n_na_dsdtc n_na_dsstdy
+      <int>      <int>        <int>       <int>        <int>      <int>      <int>       <int>
+1       850        306            0           0          544          0          0          52
+# ℹ 5 more variables: min_dsstdy <int>, max_dsstdy <int>, pct_complete_dsterm <dbl>,
+#   pct_complete_dsdecod <dbl>, pct_complete_dscat <dbl>
+
+✓ No duplicate keys found
+
+=== SECTION 11: Saving Outputs ===
+
+✓ Saved:  question_1_sdtm/output/ds.rds 
+✓ Saved:  question_1_sdtm/output/ds.csv 
+✓ Saved:  question_1_sdtm/output/session_info.txt 
+
+================================================================================
+DS DOMAIN CREATION COMPLETED
+================================================================================
+
+Final Statistics:
+  Total records:  850 
+  Unique subjects:  306 
+  DSTERM complete:  100 %
+  DSDECOD complete: 36 %
+  DSCAT complete:  100 %
+
+Output Files:
+   question_1_sdtm/output/ds.rds 
+   question_1_sdtm/output/ds.csv 
+   question_1_sdtm/output/qc_summary.csv 
+   question_1_sdtm/output/ct_mapping_messages.txt 
+   question_1_sdtm/output/session_info.txt 
+
+================================================================================
+Completed at:  2026-02-04 20:24:39 
+================================================================================

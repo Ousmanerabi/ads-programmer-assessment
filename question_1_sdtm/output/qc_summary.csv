@@ -1,0 +1,2 @@
+"n_records","n_subjects","n_na_usubjid","n_na_dsterm","n_na_dsdecod","n_na_dscat","n_na_dsdtc","n_na_dsstdy","min_dsstdy","max_dsstdy","pct_complete_dsterm","pct_complete_dsdecod","pct_complete_dscat"
+850,306,0,0,544,0,0,52,-16,286,100,36,100
