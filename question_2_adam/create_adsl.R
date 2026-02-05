@@ -3,7 +3,7 @@
 # ==============================================================================
 #
 # Program:     create_adsl.R
-# Purpose:     Create ADSL dataset from SDTM sources per Question 2 requirements
+# Purpose:     Create ADSL dataset from SDTM sources
 # Author:      Ousmane Diallo
 # Date:        February 2026
 #
@@ -36,7 +36,6 @@ base::suppressPackageStartupMessages({
 # Constants
 OUTPUT_DIR <- "question_2_adam/output"
 
-
 COMPLETE_DATE_PATTERN <- "^\\d{4}-\\d{2}-\\d{2}"
 
 dir.create(OUTPUT_DIR, recursive = TRUE, showWarnings = FALSE)
@@ -66,8 +65,8 @@ base::cat("  DS: ", base::nrow(ds), " records\n\n")
 
 base::cat("Initializing ADSL from DM...\n")
 
-adsl <- dm %>%
-  dplyr::select(-dplyr::any_of("DOMAIN")) %>%
+adsl <- dm |>
+  dplyr::select(-dplyr::any_of("DOMAIN")) |>
   dplyr::mutate(
     TRT01P = ARM,
     TRT01A = ACTARM
@@ -80,7 +79,7 @@ base::cat("  ", base::nrow(adsl), " subjects\n\n")
 base::cat("Deriving age groupings...\n")
 
 # SPECIFICATION: Age groups - <18 (1), 18-50 (2), >50 (3)
-adsl <- adsl %>%
+adsl <- adsl |>
   dplyr::mutate(
     AGEGR9N = dplyr::case_when(
       AGE < 18              ~ 1L,
@@ -96,8 +95,8 @@ adsl <- adsl %>%
     )
   )
 
-age_dist <- adsl %>%
-  dplyr::count(AGEGR9, AGEGR9N) %>%
+age_dist <- adsl |>
+  dplyr::count(AGEGR9, AGEGR9N) |>
   dplyr::arrange(AGEGR9N)
 
 base::cat("  Age distribution:\n")
@@ -114,12 +113,12 @@ base::cat("Deriving treatment start datetime...\n")
 # - Missing time imputed to 00:00:00
 # - TRTSTMF flag for hours/minutes imputation
 
-ex_eligible <- ex %>%
+ex_eligible <- ex |>
   dplyr::filter(
     !base::is.na(EXSTDTC),
     stringr::str_detect(EXSTDTC, COMPLETE_DATE_PATTERN),
-    EXDOSE > 0 | (EXDOSE == 0 & stringr::str_detect(base::toupper(EXTRT), "PLACEBO"))
-  ) %>%
+    EXDOSE > 0 | (EXDOSE == 0 & stringr::str_detect(toupper(EXTRT), "PLACEBO"))
+  ) |>
   admiral::derive_vars_dtm(
     dtc = EXSTDTC,
     new_vars_prefix = "EXST",
@@ -127,14 +126,14 @@ ex_eligible <- ex %>%
     time_imputation = "00:00:00"
   )
 
-ex_first <- ex_eligible %>%
-  dplyr::arrange(STUDYID, USUBJID, EXSTDTM, EXSEQ) %>%
-  dplyr::group_by(STUDYID, USUBJID) %>%
-  dplyr::slice(1) %>%
-  dplyr::ungroup() %>%
+ex_first <- ex_eligible |>
+  dplyr::arrange(STUDYID, USUBJID, EXSTDTM, EXSEQ) |>
+  dplyr::group_by(STUDYID, USUBJID) |>
+  dplyr::slice(1) |>
+  dplyr::ungroup() |>
   dplyr::transmute(STUDYID, USUBJID, TRTSDTM = EXSTDTM, TRTSTMF = EXSTTMF)
 
-adsl <- adsl %>%
+adsl <- adsl |>
   dplyr::left_join(ex_first, by = c("STUDYID", "USUBJID"))
 
 base::cat("  TRTSDTM derived for ", base::sum(!base::is.na(adsl$TRTSDTM)), 
@@ -145,7 +144,7 @@ base::cat("  TRTSDTM derived for ", base::sum(!base::is.na(adsl$TRTSDTM)),
 base::cat("Deriving ITT flag...\n")
 
 # SPECIFICATION: "Y" if ARM populated (randomized), "N" otherwise
-adsl <- adsl %>%
+adsl <- adsl |>
   dplyr::mutate(
     ITTFL = dplyr::if_else(!base::is.na(ARM) & base::nchar(ARM) > 0, "Y", "N")
   )
@@ -159,57 +158,57 @@ base::cat("Deriving last known alive date...\n")
 # SPECIFICATION: MAX of last dates from VS, AE, DS, EX (all with complete dates)
 
 # VS: Last visit with valid result
-vs_last <- vs %>%
+vs_last <- vs |>
   dplyr::filter(
     !base::is.na(VSDTC),
     stringr::str_detect(VSDTC, COMPLETE_DATE_PATTERN),
     !(base::is.na(VSSTRESN) & base::is.na(VSSTRESC))
-  ) %>%
-  dplyr::mutate(VSDT = base::as.Date(base::substr(VSDTC, 1, 10))) %>%
-  dplyr::group_by(STUDYID, USUBJID) %>%
+  ) |>
+  dplyr::mutate(VSDT = base::as.Date(base::substr(VSDTC, 1, 10))) |>
+  dplyr::group_by(STUDYID, USUBJID) |>
   dplyr::summarise(VSLASTDT = base::max(VSDT), .groups = "drop")
 
 # AE: Last AE start date
-ae_last <- ae %>%
+ae_last <- ae |>
   dplyr::filter(
     !base::is.na(AESTDTC),
     stringr::str_detect(AESTDTC, COMPLETE_DATE_PATTERN)
-  ) %>%
-  dplyr::mutate(AEDT = base::as.Date(base::substr(AESTDTC, 1, 10))) %>%
-  dplyr::group_by(STUDYID, USUBJID) %>%
+  ) |>
+  dplyr::mutate(AEDT = base::as.Date(base::substr(AESTDTC, 1, 10))) |>
+  dplyr::group_by(STUDYID, USUBJID) |>
   dplyr::summarise(AELASTDT = base::max(AEDT), .groups = "drop")
 
 # DS: Last disposition date
-ds_last <- ds %>%
+ds_last <- ds |>
   dplyr::filter(
     !base::is.na(DSSTDTC),
     stringr::str_detect(DSSTDTC, COMPLETE_DATE_PATTERN)
-  ) %>%
-  dplyr::mutate(DSDT = base::as.Date(base::substr(DSSTDTC, 1, 10))) %>%
-  dplyr::group_by(STUDYID, USUBJID) %>%
+  ) |>
+  dplyr::mutate(DSDT = base::as.Date(base::substr(DSSTDTC, 1, 10))) |>
+  dplyr::group_by(STUDYID, USUBJID) |>
   dplyr::summarise(DSLASTDT = base::max(DSDT), .groups = "drop")
 
 # EX: Last exposure end date with valid dose
-ex_last <- ex %>%
+ex_last <- ex |>
   dplyr::filter(
     !base::is.na(EXENDTC),
     stringr::str_detect(EXENDTC, COMPLETE_DATE_PATTERN),
     EXDOSE > 0 | (EXDOSE == 0 & stringr::str_detect(base::toupper(EXTRT), "PLACEBO"))
-  ) %>%
-  dplyr::mutate(EXDT = base::as.Date(base::substr(EXENDTC, 1, 10))) %>%
-  dplyr::group_by(STUDYID, USUBJID) %>%
+  ) |>
+  dplyr::mutate(EXDT = base::as.Date(base::substr(EXENDTC, 1, 10))) |>
+  dplyr::group_by(STUDYID, USUBJID) |>
   dplyr::summarise(EXLASTDT = base::max(EXDT), .groups = "drop")
 
 # Merge and calculate max
-adsl <- adsl %>%
-  dplyr::left_join(vs_last, by = c("STUDYID", "USUBJID")) %>%
-  dplyr::left_join(ae_last, by = c("STUDYID", "USUBJID")) %>%
-  dplyr::left_join(ds_last, by = c("STUDYID", "USUBJID")) %>%
-  dplyr::left_join(ex_last, by = c("STUDYID", "USUBJID")) %>%
+adsl <- adsl |>
+  dplyr::left_join(vs_last, by = c("STUDYID", "USUBJID")) |>
+  dplyr::left_join(ae_last, by = c("STUDYID", "USUBJID")) |>
+  dplyr::left_join(ds_last, by = c("STUDYID", "USUBJID")) |>
+  dplyr::left_join(ex_last, by = c("STUDYID", "USUBJID")) |>
   dplyr::mutate(
     LSTAVLDT = base::pmax(VSLASTDT, AELASTDT, DSLASTDT, EXLASTDT, na.rm = TRUE),
     LSTAVLDT = dplyr::if_else(base::is.infinite(LSTAVLDT), base::as.Date(NA), LSTAVLDT)
-  ) %>%
+  ) |>
   dplyr::select(-VSLASTDT, -AELASTDT, -DSLASTDT, -EXLASTDT)
 
 base::cat("  LSTAVLDT derived for ", base::sum(!base::is.na(adsl$LSTAVLDT)), 
@@ -219,7 +218,7 @@ base::cat("  LSTAVLDT derived for ", base::sum(!base::is.na(adsl$LSTAVLDT)),
 
 base::cat("Running quality control...\n")
 
-qc <- adsl %>%
+qc <- adsl |>
   dplyr::summarise(
     n_subjects = dplyr::n(),
     n_unique_usubjid = dplyr::n_distinct(USUBJID),
