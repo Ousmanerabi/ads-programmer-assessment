@@ -233,22 +233,22 @@ base::print(qc)
 
 # CRITICAL: Verify one record per subject
 if (qc$n_subjects != qc$n_unique_usubjid) {
-  base::stop("ERROR: Duplicate USUBJIDs in ADSL")
+  stop("ERROR: Duplicate USUBJIDs in ADSL")
 }
 
-base::cat("\n✓ One record per subject verified\n\n")
+cat("\n✓ One record per subject verified\n\n")
 
 # Save QC summary
-utils::write.csv(qc, base::file.path(OUTPUT_DIR, "qc_summary.csv"), row.names = FALSE)
+write.csv(qc, file.path(OUTPUT_DIR, "qc_summary.csv"), row.names = FALSE)
 
 # ── Save Outputs ───────────────────────────────────────────────────────────────
 
-base::cat("Saving outputs...\n")
+cat("Saving outputs...\n")
 
-base::saveRDS(adsl, base::file.path(OUTPUT_DIR, "adsl.rds"))
-utils::write.csv(adsl, base::file.path(OUTPUT_DIR, "adsl.csv"), row.names = FALSE)
-utils::capture.output(utils::sessionInfo(), 
-                      file = base::file.path(OUTPUT_DIR, "session_info.txt"))
+saveRDS(adsl, file.path(OUTPUT_DIR, "adsl.rds"))
+write.csv(adsl, file.path(OUTPUT_DIR, "adsl.csv"), row.names = FALSE)
+capture.output(sessionInfo(), 
+                      file = file.path(OUTPUT_DIR, "session_info.txt"))
 
 base::cat("  ✓ adsl.rds\n")
 base::cat("  ✓ adsl.csv\n")
