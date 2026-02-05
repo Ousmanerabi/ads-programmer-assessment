@@ -9,8 +9,6 @@ Question 4 (Python) is not included.
 
 ## Repository Structure
 
-## Repository Structure
-
 ```text
 ads-programmer-assessment/
 ├── README.md
